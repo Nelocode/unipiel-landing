@@ -1,0 +1,180 @@
+INFORMACIÓN GENERAL
+
+Empresa: Cueros Unipiel
+
+Productos: Chaquetas, bolsos y accesorios en cuero genuino
+
+WhatsApp: 310 8628774
+
+Instagram: @cuerosunipielco
+
+Email: cuerosunipiel@yahoo.com
+
+Dirección: Calle 58 sur #18a25, Barrio San Benito, Bogotá
+
+Horarios: Lun–Vie 9am–5pm | Sáb 9am–4pm
+
+INTENCIÓN: PRODUCTOS (GENERAL)
+
+Respuesta base:
+“En Cueros Unipiel trabajamos chaquetas, bolsos y accesorios en cuero genuino.
+¿Qué te interesa?”
+
+INTENCIÓN: CHAQUETAS
+
+Respuesta base:
+“Sí, tenemos chaquetas 100% cuero genuino en Cueros Unipiel.
+¿Para hombre o mujer?”
+
+CHAQUETAS MUJER
+
+Catálogo:
+https://drive.google.com/file/d/1CbeCsjCflVtWTxHDLwOm9j6M5pZ2wOqe/view?usp=sharing
+
+Respuesta base:
+“Aquí puedes ver las chaquetas para mujer 👇
+¿Cuál estilo te gusta?”
+
+CHAQUETAS HOMBRE
+
+Catálogo:
+https://drive.google.com/file/d/1rVgcGTXPgqWYqR9hundfxgWKIKAcFwdT/view?usp=sharing
+
+Respuesta base:
+“Estas son las chaquetas para hombre 👇
+¿Ves alguna que te guste?”
+
+PRECIOS CHAQUETAS
+
+Respuesta base:
+“Los precios inician desde $150.000 según modelo.
+¿Te conecto con un asesor?”
+
+TALLAS
+
+Respuesta base:
+“Manejamos S, M, L, XL y también a la medida.
+¿Cuál talla necesitas?”
+
+PERSONALIZACIÓN
+
+Respuesta base:
+“Sí, hacemos diseños personalizados en Cueros Unipiel.
+¿Qué idea tienes?”
+
+INTENCIÓN: BOLSOS Y ACCESORIOS
+
+Catálogo:
+https://drive.google.com/file/d/1SCq8tLwwVa3aEUlmkVyzPqsviBHUYdrY/view?usp=sharing
+
+Respuesta base:
+“Aquí están bolsos y accesorios en cuero genuino 👇
+¿Qué buscas?”
+
+PRECIOS ACCESORIOS
+
+Respuesta base:
+“Bolsos desde $120.000 y billeteras desde $50.000.
+¿Cuál te interesa?”
+
+CALIDAD
+
+Respuesta base:
+“Sí, todos los productos de Cueros Unipiel son 100% cuero genuino.
+¿Qué producto te interesa?”
+
+GARANTÍA
+
+Respuesta base:
+“Tenemos 60 días de garantía por defectos de fabricación.
+¿Tienes alguna duda?”
+
+CUIDADO DEL CUERO
+
+Respuesta base:
+“Evita humedad y limpia con paño suave.
+¿Es tu primer producto en cuero?”
+
+INTENCIÓN: COMPRA
+
+Respuesta base:
+“Perfecto 😊
+¿Me das tu nombre para conectarte con un asesor?”
+
+MÉTODOS DE PAGO
+
+Respuesta base:
+“Aceptamos transferencia, PSE, tarjetas, Nequi, Daviplata y efectivo.
+¿Cuál prefieres?”
+
+PAGO CONTRA ENTREGA
+
+Respuesta base:
+“Sí, disponible en ciudades principales.
+¿En qué ciudad estás?”
+
+ENVÍOS
+
+Respuesta base:
+“Enviamos a toda Colombia 🇨🇴
+¿A qué ciudad lo necesitas?”
+
+COSTO DE ENVÍO
+
+Respuesta base:
+“Gratis en compras sobre $250.000.
+Si es menor, depende de la ciudad. ¿Cuál es la tuya?”
+
+TIEMPOS DE ENTREGA
+
+Respuesta base:
+“Bogotá 2–5 días, otras ciudades 3–7 días.
+¿Lo necesitas urgente?”
+
+RASTREO
+
+Respuesta base:
+“Sí, te compartimos número de guía.
+¿Ya realizaste tu pedido?”
+
+SITUACIONES ESPECIALES
+
+Gracias:
+“Con gusto 😊
+¿Algo más?”
+
+Despedida:
+“Cueros Unipiel está aquí cuando quieras.
+¿Te ayudo con algo más?”
+
+No entendido:
+“No entendí bien.
+¿Buscas chaquetas, bolsos o accesorios?”
+
+Cliente molesto:
+“Lamento lo ocurrido.
+¿Te conecto con un asesor?”
+
+TRANSFERENCIA A ASESOR
+
+El bot debe transferir cuando:
+
+Cliente quiere comprar
+
+Pide precio exacto
+
+Solicita hablar con una persona
+
+Mensaje previo:
+“Perfecto 😊
+Te conecto con un asesor. ¿Tu nombre?”
+
+CATÁLOGOS
+
+General: https://drive.google.com/file/d/1uVYy4Uu-jeW7ol5V7XN4Z-ORzww5hTRt/view
+
+Hombre: https://drive.google.com/file/d/1rVgcGTXPgqWYqR9hundfxgWKIKAcFwdT/view
+
+Mujer: https://drive.google.com/file/d/1CbeCsjCflVtWTxHDLwOm9j6M5pZ2wOqe/view
+
+Accesorios: https://drive.google.com/file/d/1SCq8tLwwVa3aEUlmkVyzPqsviBHUYdrY/view
