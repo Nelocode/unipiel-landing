@@ -57,4 +57,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 4. Dynamic Catalog Links Loading
+    const loadCatalogLinks = async () => {
+        try {
+            const response = await fetch('/api/catalogs');
+            if (response.ok) {
+                const catalogs = await response.json();
+                const btnHombre = document.getElementById('btn-catalogo-hombre');
+                const btnMujer = document.getElementById('btn-catalogo-mujer');
+                const btnAccesorios = document.getElementById('btn-catalogo-accesorios');
+
+                if (btnHombre && catalogs.hombre) btnHombre.setAttribute('href', catalogs.hombre);
+                if (btnMujer && catalogs.mujer) btnMujer.setAttribute('href', catalogs.mujer);
+                if (btnAccesorios && catalogs.accesorios) btnAccesorios.setAttribute('href', catalogs.accesorios);
+            }
+        } catch (error) {
+            console.error('Error al cargar los enlaces de los catálogos:', error);
+        }
+    };
+    loadCatalogLinks();
 });
+

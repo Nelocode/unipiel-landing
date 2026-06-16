@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración | Cueros Unipiel</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #8C5A35;
+            --primary-hover: #72492B;
+            --secondary: #1A1A1A;
+            --accent: #D4A373;
+            --bg-dark: #121212;
+            --card-bg: rgba(26, 26, 26, 0.75);
+            --text-light: #FFFFFF;
+            --text-muted: #A0A0A0;
+            --font-main: 'Outfit', sans-serif;
+            --error: #FF4A4A;
+            --success: #25D366;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(140, 90, 53, 0.15) 0%, transparent 40%),
+                              radial-gradient(circle at 90% 80%, rgba(212, 163, 115, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .admin-container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 3rem 2.5rem;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo {
+            width: 90px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        input[type="url"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 2.8rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px rgba(212, 163, 115, 0.2);
+        }
+
+        input:focus + .input-icon,
+        input:focus ~ .input-icon {
+            color: var(--accent);
+        }
+
+        /* Password Visibility Toggle */
+        .toggle-password {
+            position: absolute;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.2rem;
+            transition: var(--transition);
+        }
+
+        .toggle-password:hover {
+            color: var(--accent);
+        }
+
+        .password-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Buttons */
+        .btn-submit {
+            width: 100%;
+            padding: 1.1rem;
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(140, 90, 53, 0.35);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            background-color: rgba(140, 90, 53, 0.5);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.8rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            transform: translateX(-3px);
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 1000;
+        }
+
+        .toast {
+            background-color: #1a1a1a;
+            color: var(--text-light);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin-top: 0.8rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 0.3s forwards cubic-bezier(0.25, 0.8, 0.25, 1);
+            min-width: 280px;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .toast.success {
+            border-left-color: var(--success);
+        }
+
+        .toast.error {
+            border-left-color: var(--error);
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2.5px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .admin-container {
+                padding: 2rem 1.5rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <div class="header">
+            <img src="logo.jpg" alt="Cueros Unipiel Logo" class="logo">
+            <h1>Gestión de Catálogos</h1>
+            <p class="subtitle">Modifica los enlaces de los catálogos en tiempo real</p>
+        </div>
+
+        <form id="catalogs-form">
+            <!-- Hombre -->
+            <div class="form-group">
+                <label for="hombre">Catálogo Hombre</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">👨</span>
+                    <input type="url" id="hombre" name="hombre" placeholder="https://drive.google.com/..." required>
+                </div>
+            </div>
+
+            <!-- Mujer -->
+            <div class="form-group">
+                <label for="mujer">Catálogo Mujer</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">👩</span>
+                    <input type="url" id="mujer" name="mujer" placeholder="https://drive.google.com/..." required>
+                </div>
+            </div>
+
+            <!-- Accesorios -->
+            <div class="form-group">
+                <label for="accesorios">Catálogo Bolsos y Accesorios</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">👜</span>
+                    <input type="url" id="accesorios" name="accesorios" placeholder="https://drive.google.com/..." required>
+                </div>
+            </div>
+
+            <!-- Password & Action -->
+            <div class="password-section">
+                <div class="form-group">
+                    <label for="password">Contraseña de Administrador</label>
+                    <div class="input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" id="password" name="password" placeholder="Ingresa la contraseña" required>
+                        <button type="button" class="toggle-password" id="toggle-pw-btn" aria-label="Mostrar contraseña">👁️</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submit-btn">
+                    <span>Guardar Cambios</span>
+                </button>
+            </div>
+        </form>
+
+        <a href="/" class="back-link">
+            <span>← Volver al Sitio Principal</span>
+        </a>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script>
+        const form = document.getElementById('catalogs-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const passwordInput = document.getElementById('password');
+        const togglePwBtn = document.getElementById('toggle-pw-btn');
+        const toastContainer = document.getElementById('toast-container');
+
+        // Toggle password visibility
+        togglePwBtn.addEventListener('click', () => {
+            const isPassword = passwordInput.type === 'password';
+            passwordInput.type = isPassword ? 'text' : 'password';
+            togglePwBtn.textContent = isPassword ? '🙈' : '👁️';
+        });
+
+        // Show toast notification helper
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            let icon = '✔️';
+            if (type === 'error') icon = '❌';
+            if (type === 'info') icon = 'ℹ️';
+
+            toast.innerHTML = `<span>${icon}</span><span>${message}</span>`;
+            toastContainer.appendChild(toast);
+
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                toast.style.animation = 'none'; // reset animation
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // Fetch current catalog links on page load
+        async function loadCurrentCatalogs() {
+            submitBtn.disabled = true;
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="spinner"></div><span>Cargando enlaces...</span>';
+
+            try {
+                const response = await fetch('/api/catalogs');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('hombre').value = data.hombre || '';
+                    document.getElementById('mujer').value = data.mujer || '';
+                    document.getElementById('accesorios').value = data.accesorios || '';
+                    showToast('Enlaces cargados correctamente.', 'success');
+                } else {
+                    showToast('No se pudieron obtener los enlaces del servidor.', 'error');
+                }
+            } catch (err) {
+                console.error('Error fetching catalogs:', err);
+                showToast('Error de conexión con el servidor.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+            }
+        }
+
+        // Submit form data
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const hombre = document.getElementById('hombre').value.trim();
+            const mujer = document.getElementById('mujer').value.trim();
+            const accesorios = document.getElementById('accesorios').value.trim();
+            const password = passwordInput.value;
+
+            // Basic client-side URL validation
+            try {
+                new URL(hombre);
+                new URL(mujer);
+                new URL(accesorios);
+            } catch (err) {
+                showToast('Por favor introduce URLs válidas en todos los campos.', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            const originalBtnContent = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<div class="spinner"></div><span>Guardando...</span>';
+
+            try {
+                const response = await fetch('/api/catalogs', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ password, hombre, mujer, accesorios })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    showToast(result.message || 'Catálogos actualizados correctamente.', 'success');
+                    passwordInput.value = ''; // Clear password field on success
+                } else {
+                    showToast(result.error || 'Error al guardar cambios.', 'error');
+                }
+            } catch (err) {
+                console.error('Error submitting form:', err);
+                showToast('Error de conexión con el servidor.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnContent;
+            }
+        });
+
+        // Initialize values on load
+        window.addEventListener('DOMContentLoaded', loadCurrentCatalogs);
+    </script>
+</body>
+</html>
