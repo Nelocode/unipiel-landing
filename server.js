@@ -71,6 +71,7 @@ function isValidUrl(urlString) {
 
 // API endpoint to get the current catalog links
 app.get('/api/catalogs', (req, res) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
         if (err) {
             console.error('Error reading catalogs file:', err);

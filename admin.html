@@ -404,7 +404,7 @@
             submitBtn.innerHTML = '<div class="spinner"></div><span>Cargando enlaces...</span>';
 
             try {
-                const response = await fetch('/api/catalogs');
+                const response = await fetch('/api/catalogs', { cache: 'no-store' });
                 if (response.ok) {
                     const data = await response.json();
                     document.getElementById('hombre').value = data.hombre || '';

@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Dynamic Catalog Links Loading
     const loadCatalogLinks = async () => {
         try {
-            const response = await fetch('/api/catalogs');
+            const response = await fetch('/api/catalogs', { cache: 'no-store' });
             if (response.ok) {
                 const catalogs = await response.json();
                 const btnHombre = document.getElementById('btn-catalogo-hombre');
